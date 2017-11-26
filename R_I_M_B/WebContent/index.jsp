@@ -162,18 +162,11 @@
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/administrarUsuario.jsp">Usuario</a></li>
 						<li><a class="ajax-link" href="ajax/roles.jsp">Roles</a></li>
-						<li><a class="ajax-link" href="">Asignar opciones</a></li>
-						<li><a class="ajax-link" href="">Asignar roles</a></li>
-					</ul>
-				</li>
-				<li class="dropdown">
-				<a href="#" class="dropdown-toggle">
-						<i class="fa fa-group"></i>
-						<span class="hidden-xs">Mentoría</span>
-					</a>
-					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/SolicitudMentor.jsp">Solicitud Mentor</a></li>
-						<li><a class="ajax-link" href="ajax/solicitudMentoria.jsp">Solicitud Mentoría</a></li>
+						<li><a class="ajax-link" href="">Sub3</a></li>
+						<li><a class="ajax-link" href="">Sub4</a></li>
+						<li><a class="ajax-link" href="">Sub5</a></li>
+						<li><a class="ajax-link" href="">Sub6</a></li>
+						<li><a class="ajax-link" href="">Sub7</a></li>
 					</ul>
 				</li>
 				<li class="dropdown">
