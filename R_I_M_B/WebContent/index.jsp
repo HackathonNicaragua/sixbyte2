@@ -172,7 +172,7 @@
 						<span class="hidden-xs">Mentoría</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/administrarUsuario.jsp">Solicitud Mentor</a></li>
+						<li><a class="ajax-link" href="ajax/SolicitudMentor.jsp">Solicitud Mentor</a></li>
 						<li><a class="ajax-link" href="ajax/solicitudMentoria.jsp">Solicitud Mentoría</a></li>
 					</ul>
 				</li>
