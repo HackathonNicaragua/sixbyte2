@@ -1,19 +1,14 @@
 package datos;
-import java.util.ArrayList;
-
-import javax.resource.cci.ResultSet;
-
-import com.mysql.jdbc.Connection;
-import com.mysql.jdbc.PreparedStatement;
-import com.sun.tools.ws.wsdl.document.jaxws.Exception;
-import com.sun.xml.ws.config.metro.parser.jsr109.String;
-
 import entidades.Tbl_Rol;
+
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.util.ArrayList;
 
 public class Dt_Rol 
 {
 	
-	/*******Metodo para guardar a un Rol*******/
 	PoolConexion pc = PoolConexion.getInstance(); 
 	Connection c = PoolConexion.getConnection();
 	private ResultSet rsRol;
@@ -21,14 +16,10 @@ public class Dt_Rol
 	// Metodo para visualizar todos los clientes
 	public ArrayList<Tbl_Rol> listarRoles()
 	{
-		
-		System.out.println("Listar Roles");
 		ArrayList<Tbl_Rol> listaRol = new ArrayList<Tbl_Rol>();
-		
 		try
 		{
-			
-			PreparedStatement ps = c.prepareStatement("SELECT * FROM rimb.rol;", ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+			PreparedStatement ps = c.prepareStatement("SELECT * FROM rimb.rol;");
 			rsRol = ps.executeQuery();
 			while(rsRol.next())
 			{

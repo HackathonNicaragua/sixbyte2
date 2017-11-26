@@ -169,7 +169,7 @@
 						<span class="hidden-xs">Seguridad</span>
 					</a>
 					<ul class="dropdown-menu">
-						<li><a class="ajax-link" href="ajax/administrarUsuario.jsp">Usuario</a></li>
+						<li><a class="ajax-link" href="ajax/NuevoUsuario.jsp">Usuario</a></li>
 						<li><a class="ajax-link" href="ajax/roles.jsp">Roles</a></li>
 					</ul>
 				</li>

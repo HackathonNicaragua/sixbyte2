@@ -16,7 +16,7 @@ public class PoolConexion
 	private static Connection con = null;
 	private static DataSource dataSource;
 //	private static String db = "dbPrestamo";
-	private static String url = "jdbc:mysql://192.168.1.104:3306/rimb";
+	private static String url = "jdbc:mysql://192.168.1.100:3306/rimb";
 	private static String user = "root";
 	private static String pass = "$1xbyte6";
 	

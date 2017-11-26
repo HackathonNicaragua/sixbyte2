@@ -1,5 +1,6 @@
+<%@page import="datos.Dt_Rol"%>
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="entidades.*, datos.*, java.util.*;"%>
 
 
 <!-- Breadcrumb -->
@@ -39,9 +40,9 @@
 			<!-- /Cabecera -->
 			
 			<!-- Contenedor -->
-			<div class="box-content">
+			<div class="box-content no-padding">
 				
-				<form class="form-horizontal" role="form">
+				<form class="form-horizontal" role="form" action="./Sl_Rol" method="post">
 					
 					<!-- Campos -->
 					<fieldset>
@@ -70,7 +71,7 @@
 						<div class="form-group">
 							<label class="col-md-3 control-label">Descripcion </label>
 							<div class="col-md-7">
-								<input id="descRol" name="descRol" type="text" class="form-control" placeholder="Ingrese la clave del usuario" required>
+								<input id="descRol" name="descRol" type="text" class="form-control" placeholder="Ingrese la descripcion" required>
 							</div>
 						</div>
 						<!-- Fin -->
@@ -98,8 +99,67 @@
 				</form>
 				<!-- /Formulario -->
 				
+                    <table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Rol</th>
+                                <th>Descripcion</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <%
+                        		Dt_Rol dtm = new Dt_Rol();
+                        
+                        		ArrayList<Tbl_Rol> listaRoles = new ArrayList<Tbl_Rol>();
+                        		listaRoles = dtm.listarRoles();
+                        
+	                        for(Tbl_Rol tbm : listaRoles)
+	                        {
+	                        	
+	                        %>
+                            <tr>
+                            	<td><%=tbm.getIdRol()%></td>
+                            	<td><%=tbm.getNombreRol()%></td>
+                            	<td><%=tbm.getDescripcion()%></td>
+                            </tr>
+                          	<%
+	                         }
+                            
+                            %>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>ID</th>
+                                <th>Rol</th>
+                                <th>Descripcion</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+				
 			</div>
 		</div>
 	</div>
 </div>
 <!-- /Formulario de registro de usuario -->
+<script type="text/javascript">
+// Run Datables plugin and create 3 variants of settings
+function AllTables(){
+	TestTable1();
+	TestTable2();
+	TestTable3();
+	LoadSelect2Script(MakeSelect2);
+}
+function MakeSelect2(){
+	$('select').select2();
+	$('.dataTables_filter').each(function(){
+		$(this).find('label input[type=text]').attr('placeholder', 'Buscar');
+	});
+}
+$(document).ready(function() {
+	// Load Datatables and run plugin on tables 
+	LoadDataTablesScripts(AllTables);
+	// Add Drag-n-Drop feature
+	WinMove();
+});
+</script>
