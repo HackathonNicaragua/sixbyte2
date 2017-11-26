@@ -161,7 +161,7 @@
 					</a>
 					<ul class="dropdown-menu">
 						<li><a class="ajax-link" href="ajax/administrarUsuario.jsp">Usuario</a></li>
-						<li><a class="ajax-link" href="">Sub</a>Roles</li>
+						<li><a class="ajax-link" href="ajax/roles.jsp">Roles</a></li>
 						<li><a class="ajax-link" href="">Asignar opciones</a></li>
 						<li><a class="ajax-link" href=""></a>Asignar roles</li>
 					</ul>
