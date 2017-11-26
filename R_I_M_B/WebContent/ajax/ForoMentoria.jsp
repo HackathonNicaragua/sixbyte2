@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1"%>
+    pageEncoding="ISO-8859-1" import="entidades.*, datos.*, java.util.*;"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <!-- Breadcrumb -->
@@ -51,41 +51,23 @@
 					<fieldset>
 					
 					<!-- Mensaje de campos Obligatorios -->
-						<div class="col-md-12 col-md-offset-2">
-							<h4>
-								Los Campos con indicacion Son Requeridos
-								<span class="fa fa-check-square-o fa-2x txt-success form-control-feedback"></span>
-							</h4>
+						<div class="col-md-12 col-md-offset-2">							
 						</div>
 						<div class="clearfix"></div>
 						<div class="clearfix"></div>
-						<!-- Fin de seccion del mensaje -->
-						
-						<!-- Usuario -->
-						<div class="form-group">
-							<div class="col-md-3 control-label">
-								<label>Usuario</label> <span
-									class="fa fa-check-square-o fa-lg txt-success form-control-feedback"></span>
-							</div>
-							
-							<div class="col-md-7">
-								<select id="lista_Usuario" name="lista_Usuario" class="populate placeholder" required>
-									<option value="0">-- Seleccione un Usuario --</option>
-								</select>
-							</div>
-						</div>
-						<!-- /Fin -->
+						<!-- Fin de seccion del mensaje -->									
 						
 						<!-- Mentor -->
 						<div class="form-group">
 							<div class="col-md-3 control-label">
-								<label>Mentor</label> <span
-									class="fa fa-check-square-o fa-lg txt-success form-control-feedback"></span>
+								<label>Mentor</label> 
 							</div>
 							
 							<div class="col-md-7">
 								<select id="lista_Mentor" name="lista_Mentor" class="populate placeholder" required>
-									<option value="0">-- Seleccione una Carrera --</option>
+									<option value="">-- Seleccione un mentor.... --</option>
+									<option value="1">-- Luis Agustin --</option>
+									<option value="2">-- Alfendi Laytoni --</option>
 								</select>
 							</div>
 						</div>
@@ -126,6 +108,48 @@
 					
 				</form>
 				<!-- /Fomulario -->
+				
+				<table class="table table-bordered table-striped table-hover table-heading table-datatable" id="datatable-1">
+                        <thead>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Mentor</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                        <%
+                        		DT_Tbl_Foro_Mentoria dtm = new DT_Tbl_Foro_Mentoria();
+                        
+                        		ArrayList<Tbl_Foro_Mentoria> listaForosMonitoria = new ArrayList<Tbl_Foro_Mentoria>();
+                        		listaForosMonitoria = dtm.listarForoMentoria();
+                        
+	                        for(Tbl_Foro_Mentoria tbm : listaForosMonitoria)
+	                        {
+	                        	
+	                        %>
+                            <tr>
+                            	<td><%=tbm.getNombreForo()%></td>
+                            	<td><%=tbm.getEstado()%></td>
+                            	<td><%=tbm.getFecha()%></td>
+                            	<td><%=tbm.getIdUsuarioMentor()%></td>                            	
+                            </tr>
+                          	<%
+	                         }
+                            
+                            %>
+                        </tbody>
+                        <tfoot>
+                            <tr>
+                                <th>Nombre</th>
+                                <th>Estado</th>
+                                <th>Fecha</th>
+                                <th>Mentor</th>
+                            </tr>
+                        </tfoot>
+                    </table>
+				
 			</div>
 			<!-- /Contenedor -->
 			
@@ -133,3 +157,25 @@
 	</div>
 </div>
 <!-- /Fin del fomulario -->
+<!-- /Formulario de registro de usuario -->
+<script type="text/javascript">
+// Run Datables plugin and create 3 variants of settings
+function AllTables(){
+	TestTable1();
+	TestTable2();
+	TestTable3();
+	LoadSelect2Script(MakeSelect2);
+}
+function MakeSelect2(){
+	$('select').select2();
+	$('.dataTables_filter').each(function(){
+		$(this).find('label input[type=text]').attr('placeholder', 'Buscar');
+	});
+}
+$(document).ready(function() {
+	// Load Datatables and run plugin on tables 
+	LoadDataTablesScripts(AllTables);
+	// Add Drag-n-Drop feature
+	WinMove();
+});
+</script>

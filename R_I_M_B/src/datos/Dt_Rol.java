@@ -1,10 +1,14 @@
 package datos;
-import entidades.Tbl_Rol;
-
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.util.ArrayList;
+
+import javax.resource.cci.ResultSet;
+
+import com.mysql.jdbc.Connection;
+import com.mysql.jdbc.PreparedStatement;
+import com.sun.tools.ws.wsdl.document.jaxws.Exception;
+import com.sun.xml.ws.config.metro.parser.jsr109.String;
+
+import entidades.Tbl_Rol;
 
 public class Dt_Rol 
 {
