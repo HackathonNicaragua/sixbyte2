@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.password">$1xbyte6</property>
+        <property name="hibernate.connection.url">jdbc:mysql://192.168.1.104:3306/rimb</property>
+        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+        <property name="hibernate.search.autoregister_listeners">true</property>
+        <property name="hibernate.validator.apply_to_ddl">false</property>
+        <mapping resource="entidades/PersonaContacto.hbm.xml"/>
+        <mapping resource="entidades/ValoracionPlan.hbm.xml"/>
+        <mapping resource="entidades/Opcion.hbm.xml"/>
+        <mapping resource="entidades/GestionAcademica.hbm.xml"/>
+        <mapping resource="entidades/Afiliado.hbm.xml"/>
+        <mapping resource="entidades/SolicitudMentor.hbm.xml"/>
+        <mapping resource="entidades/UsuarioAfiliado.hbm.xml"/>
+        <mapping resource="entidades/TematicaPublicacion.hbm.xml"/>
+        <mapping resource="entidades/FotoPublicoDetalle.hbm.xml"/>
+        <mapping resource="entidades/Publicacion.hbm.xml"/>
+        <mapping resource="entidades/EvaluacionMentoriado.hbm.xml"/>
+        <mapping resource="entidades/SolicitudMentoria.hbm.xml"/>
+        <mapping resource="entidades/Usuario.hbm.xml"/>
+        <mapping resource="entidades/ArticuloCategoria.hbm.xml"/>
+        <mapping resource="entidades/Articulo.hbm.xml"/>
+        <mapping resource="entidades/RedAfiliado.hbm.xml"/>
+        <mapping resource="entidades/Rol.hbm.xml"/>
+        <mapping resource="entidades/Planestudio.hbm.xml"/>
+        <mapping resource="entidades/RedSocial.hbm.xml"/>
+        <mapping resource="entidades/RolOpcion.hbm.xml"/>
+        <mapping resource="entidades/Carrera.hbm.xml"/>
+        <mapping resource="entidades/ForoMentoria.hbm.xml"/>
+        <mapping resource="entidades/Evento.hbm.xml"/>
+        <mapping resource="entidades/EvaluacionMentor.hbm.xml"/>
+        <mapping resource="entidades/ValorAfiliacion.hbm.xml"/>
+        <mapping resource="entidades/ForoMentoriaDetalle.hbm.xml"/>
+        <mapping resource="entidades/ForoPublico.hbm.xml"/>
+        <mapping resource="entidades/Promocion.hbm.xml"/>
+        <mapping resource="entidades/TipoPublicacion.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>

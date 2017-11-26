@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 11-26-2017 01:03:54 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="rimb" dynamic-insert="false" dynamic-update="false" mutable="true" name="entidades.Usuario" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="usuario">
+        <id name="idusuario" type="int">
+            <column name="idusuario"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="entidades.Rol" embed-xml="true" fetch="select" insert="true" name="rol" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idRol" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="identificacion" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="identificacion" unique="true"/>
+        </property>
+        <property generated="never" lazy="false" name="nombreUsuario" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="nombreUsuario" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="contrasenia" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="contrasenia" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="correo" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="correo" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="codigoVerificacion" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="codigoVerificacion"/>
+        </property>
+        <property generated="never" lazy="false" name="estatus" optimistic-lock="true" type="string" unique="false">
+            <column length="20" name="estatus" not-null="true"/>
+        </property>
+        <property generated="never" lazy="false" name="urlFoto" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="url_foto"/>
+        </property>
+        <property generated="never" lazy="false" name="idCarrera" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="idCarrera"/>
+        </property>
+        <property generated="never" lazy="false" name="centroEstudio" optimistic-lock="true" type="string" unique="false">
+            <column length="60" name="centroEstudio"/>
+        </property>
+        <property generated="never" lazy="false" name="celular" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="celular"/>
+        </property>
+        <property generated="never" lazy="false" name="telefeono" optimistic-lock="true" type="string" unique="false">
+            <column length="30" name="telefeono"/>
+        </property>
+        <property generated="never" lazy="false" name="direccion" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="direccion"/>
+        </property>
+        <property generated="never" lazy="false" name="objetivos" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="objetivos"/>
+        </property>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="solicitudMentors" optimistic-lock="true" sort="unsorted" table="solicitud_mentor">
+            <key on-delete="noaction">
+                <column name="idUsuario" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.SolicitudMentor" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="foroMentoriaDetalles" optimistic-lock="true" sort="unsorted" table="foro_mentoria_detalle">
+            <key on-delete="noaction">
+                <column name="id_usuario" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.ForoMentoriaDetalle" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="evaluacionMentorsForIdUsuarioMentor" optimistic-lock="true" sort="unsorted" table="evaluacion_mentor">
+            <key on-delete="noaction">
+                <column name="id_usuario_mentor" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.EvaluacionMentor" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="valoracionPlans" optimistic-lock="true" sort="unsorted" table="valoracion_plan">
+            <key on-delete="noaction">
+                <column name="idUsuario" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.ValoracionPlan" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="solicitudMentoriasForIdUsuario" optimistic-lock="true" sort="unsorted" table="solicitud_mentoria">
+            <key on-delete="noaction">
+                <column name="idUsuario" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.SolicitudMentoria" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="evaluacionMentoriadosForIdUsuarioMentoriado" optimistic-lock="true" sort="unsorted" table="evaluacion_mentoriado">
+            <key on-delete="noaction">
+                <column name="idUsuarioMentoriado" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.EvaluacionMentoriado" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="foroMentoriasForIdUsuarioMentor" optimistic-lock="true" sort="unsorted" table="foro_mentoria">
+            <key on-delete="noaction">
+                <column name="idUsuarioMentor" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.ForoMentoria" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="fotoPublicoDetalles" optimistic-lock="true" sort="unsorted" table="foto_publico_detalle">
+            <key on-delete="noaction">
+                <column name="idUsuario" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.FotoPublicoDetalle" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="foroMentoriasForIdUsuario" optimistic-lock="true" sort="unsorted" table="foro_mentoria">
+            <key on-delete="noaction">
+                <column name="idUsuario" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.ForoMentoria" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="evaluacionMentorsForIdUsuarioEvaluador" optimistic-lock="true" sort="unsorted" table="evaluacion_mentor">
+            <key on-delete="noaction">
+                <column name="id_usuario_evaluador" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.EvaluacionMentor" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="foroPublicos" optimistic-lock="true" sort="unsorted" table="foro_publico">
+            <key on-delete="noaction">
+                <column length="45" name="idUsuario" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.ForoPublico" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="publicacions" optimistic-lock="true" sort="unsorted" table="publicacion">
+            <key on-delete="noaction">
+                <column name="idUsuario"/>
+            </key>
+            <one-to-many class="entidades.Publicacion" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="solicitudMentoriasForIdUsuarioMentor" optimistic-lock="true" sort="unsorted" table="solicitud_mentoria">
+            <key on-delete="noaction">
+                <column name="idUsuarioMentor"/>
+            </key>
+            <one-to-many class="entidades.SolicitudMentoria" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="articulos" optimistic-lock="true" sort="unsorted" table="articulo">
+            <key on-delete="noaction">
+                <column name="idUsuario"/>
+            </key>
+            <one-to-many class="entidades.Articulo" embed-xml="true" not-found="exception"/>
+        </set>
+        <set embed-xml="true" fetch="select" inverse="true" lazy="true" mutable="true" name="evaluacionMentoriadosForIdUsuarioMentor" optimistic-lock="true" sort="unsorted" table="evaluacion_mentoriado">
+            <key on-delete="noaction">
+                <column name="idUsuarioMentor" not-null="true"/>
+            </key>
+            <one-to-many class="entidades.EvaluacionMentoriado" embed-xml="true" not-found="exception"/>
+        </set>
+    </class>
+</hibernate-mapping>

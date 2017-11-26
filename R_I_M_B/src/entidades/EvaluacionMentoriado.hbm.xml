@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 11-26-2017 01:03:54 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="rimb" dynamic-insert="false" dynamic-update="false" mutable="true" name="entidades.EvaluacionMentoriado" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="evaluacion_mentoriado">
+        <id name="idevaluacionmentoriado" type="int">
+            <column name="idevaluacionmentoriado"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="entidades.Usuario" embed-xml="true" fetch="select" insert="true" name="usuarioByIdUsuarioMentoriado" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idUsuarioMentoriado" not-null="true"/>
+        </many-to-one>
+        <many-to-one class="entidades.Usuario" embed-xml="true" fetch="select" insert="true" name="usuarioByIdUsuarioMentor" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idUsuarioMentor" not-null="true"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="valoracion" optimistic-lock="true" type="java.lang.Integer" unique="false">
+            <column name="valoracion"/>
+        </property>
+        <property generated="never" lazy="false" name="comentarios" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="comentarios"/>
+        </property>
+    </class>
+</hibernate-mapping>

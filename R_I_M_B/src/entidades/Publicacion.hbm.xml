@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Generated 11-26-2017 01:03:54 AM by Hibernate Tools 5.2.3.Final --><!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping auto-import="true" default-access="property" default-cascade="none" default-lazy="true">
+    <class catalog="rimb" dynamic-insert="false" dynamic-update="false" mutable="true" name="entidades.Publicacion" optimistic-lock="version" polymorphism="implicit" select-before-update="false" table="publicacion">
+        <id name="idpublicacion" type="int">
+            <column name="idpublicacion"/>
+            <generator class="assigned"/>
+        </id>
+        <many-to-one class="entidades.TipoPublicacion" embed-xml="true" fetch="select" insert="true" name="tipoPublicacion" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idTipoPublicacion"/>
+        </many-to-one>
+        <many-to-one class="entidades.Usuario" embed-xml="true" fetch="select" insert="true" name="usuario" not-found="exception" optimistic-lock="true" unique="false" update="true">
+            <column name="idUsuario"/>
+        </many-to-one>
+        <property generated="never" lazy="false" name="nombrePublicacion" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="nombrePublicacion"/>
+        </property>
+        <property generated="never" lazy="false" name="fecha" optimistic-lock="true" type="timestamp" unique="false">
+            <column length="0" name="fecha"/>
+        </property>
+        <property generated="never" lazy="false" name="estado" optimistic-lock="true" type="string" unique="false">
+            <column length="45" name="estado"/>
+        </property>
+        <property generated="never" lazy="false" name="urlArchivo" optimistic-lock="true" type="string" unique="false">
+            <column length="200" name="urlArchivo"/>
+        </property>
+    </class>
+</hibernate-mapping>
